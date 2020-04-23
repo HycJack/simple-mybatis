@@ -16,6 +16,7 @@ public class BaseMapperTest {
     public static void init(){
         try{
             Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
+            // 建造者模式
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             reader.close();
         } catch (IOException e) {

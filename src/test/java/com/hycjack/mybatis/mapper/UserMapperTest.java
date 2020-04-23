@@ -136,12 +136,15 @@ public class UserMapperTest extends BaseMapperTest {
 
     @Test
     public void testSelectById() {
+        // 初始化加载配置文件，生成 sqlSessionFactory， 获取 SqlSession
         SqlSession sqlSession = getSqlSession();
         try {
+            // 如何找到 Mapper 接口？
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            SysUser user = userMapper.selectById(1036L);
+            // 方法和 SQL 如何对应起來？
+            SysUser user = userMapper.selectById(1L);
             Assert.assertNotNull(user);
-            Assert.assertEquals("test1", user.getUserName());
+            Assert.assertEquals("admin", user.getUserName());
         } finally {
             sqlSession.close();
         }
