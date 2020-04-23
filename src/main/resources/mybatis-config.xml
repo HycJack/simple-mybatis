@@ -11,6 +11,12 @@
     <typeAliases>
         <package name="com.hycjack.mybatis.model"/>
     </typeAliases>
+    <plugins>
+        <plugin interceptor="com.hycjack.mybatis.pagehelper.PageInterceptor">
+            <property name="defaultPageSize" value="10"/>
+            <property name="defaultPageIndex" value="1"/>
+        </plugin>
+    </plugins>
 
     <environments default="development">
         <environment id="development">
